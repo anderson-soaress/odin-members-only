@@ -2,12 +2,11 @@
 
 <% if @posts.empty? %>
   <p>No posts yet</p> 
-  <%= link_to "Add a post", new_post_path %>
 <% else %>
   <ul>
     <% @posts.each do |post| %>
-      <li><b><%= post.title %></b> <br> <p> <%= post.body %></p></li>
+      <li><b><%= post.title %> <%= "by: #{post.user.name}" if user_signed_in? %></b> <br> <p> <%= post.body %></p> </li>
     <% end %>
   </ul>
-  
 <% end %>
+<%= link_to "Add a post", new_post_path %>
