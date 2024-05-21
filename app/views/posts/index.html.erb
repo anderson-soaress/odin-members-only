@@ -1,0 +1,13 @@
+<h1>All posts: </h1>
+
+<% if @posts.empty? %>
+  <p>No posts yet</p> 
+  <%= link_to "Add a post", new_post_path %>
+<% else %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li><b><%= post.title %></b> <br> <p> <%= post.body %></p></li>
+    <% end %>
+  </ul>
+  
+<% end %>
